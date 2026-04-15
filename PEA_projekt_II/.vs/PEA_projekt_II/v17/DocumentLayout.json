@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 847,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\main.cpp",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\main.cpp",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\main.cpp",
+              "RelativeToolTip": "PEA_projekt_II\\main.cpp",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-14T19:56:42.733Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
