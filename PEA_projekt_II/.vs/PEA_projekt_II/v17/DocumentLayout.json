@@ -5,6 +5,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\QueueItem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\QueueItem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\Queue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\Node.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3E52D6E7-4F2A-4C9F-9A53-B696C4DB0CA2}|PEA_projekt_II\\PEA_projekt_II.vcxproj|solutionrelative:PEA_projekt_II\\Node.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +48,87 @@
               "RelativeDocumentMoniker": "PEA_projekt_II\\main.cpp",
               "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\main.cpp",
               "RelativeToolTip": "PEA_projekt_II\\main.cpp",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFgAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAAALQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-04-14T19:56:42.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Node.h",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.h",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\Node.h",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.h",
+              "RelativeToolTip": "PEA_projekt_II\\Node.h",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-04-19T10:04:17.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Node.cpp",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.cpp",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\Node.cpp",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Node.cpp",
+              "RelativeToolTip": "PEA_projekt_II\\Node.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAIwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-19T10:07:25.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Queue.h",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.h",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\Queue.h",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.h",
+              "RelativeToolTip": "PEA_projekt_II\\Queue.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-04-19T10:02:02.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Queue.cpp",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.cpp",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\Queue.cpp",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\Queue.cpp",
+              "RelativeToolTip": "PEA_projekt_II\\Queue.cpp",
+              "ViewState": "AgIAABAAAAAAAAAAAAAIwBUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-19T10:28:46.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QueueItem.h",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.h",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\QueueItem.h",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.h",
+              "RelativeToolTip": "PEA_projekt_II\\QueueItem.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-04-19T10:02:21.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QueueItem.cpp",
+              "DocumentMoniker": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.cpp",
+              "RelativeDocumentMoniker": "PEA_projekt_II\\QueueItem.cpp",
+              "ToolTip": "C:\\Users\\froma\\OneDrive\\Documents\\GitHub\\PEA-projekt-II\\PEA_projekt_II\\PEA_projekt_II\\QueueItem.cpp",
+              "RelativeToolTip": "PEA_projekt_II\\QueueItem.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-04-19T10:37:24.454Z",
               "EditorCaption": ""
             }
           ]
