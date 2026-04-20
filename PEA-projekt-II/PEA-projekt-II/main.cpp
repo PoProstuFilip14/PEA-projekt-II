@@ -1,5 +1,3 @@
-#include <Queue>
-#include <vector>
 #include <time.h>
 #include <iostream>
 #include "Node.h"
@@ -114,7 +112,7 @@ Node** generateChildren(Node* vertex, int* graph, int size) {
 	return children;
 }
 
-void bfsAlgorithm(int* graph, int size) {
+int bfsAlgorithm(int* graph, int size) {
 	Queue<Node>* queue = new Queue<Node>();
 
 	int* path = new int[size + 1];
@@ -135,6 +133,9 @@ void bfsAlgorithm(int* graph, int size) {
 
 	int shortestCycleLength = nnAlgorithm(graph, size);
 	int* shortestCycle = new int[size + 1];
+	for (int i = 0; i <= size; i++) {
+		shortestCycle[i] = -1;
+	}
 
 	while (!queue->empty()) {
 		Node* vertex = queue->getFirstItem();
@@ -153,6 +154,7 @@ void bfsAlgorithm(int* graph, int size) {
 					//std::cout << shortestCycle[i] << std::endl;
 				}
 			}
+			delete queue->getFirstItem();
 			queue->dequeue();
 			continue;
 		}
@@ -169,19 +171,22 @@ void bfsAlgorithm(int* graph, int size) {
 		}
 
 		delete[] children;
-
+		
+		delete queue->getFirstItem();
 		queue->dequeue();
 	}
-
+	/*
 	for (int i = 0; i <= size; i++) {
 		std::cout << shortestCycle[i] << " ";
 	}
-	std::cout << "\n" << shortestCycleLength;
-
+	std::cout << "\n" << shortestCycleLength << std::endl;
+	*/
 	delete[] path;
 	delete[] visited;
-	delete[] queue;
+	delete queue;
 	delete[] shortestCycle;
+
+	return shortestCycleLength;
 }
 
 int reduceGraph(int* graph, int size) {
@@ -193,10 +198,12 @@ int reduceGraph(int* graph, int size) {
 				shortestEdge = graph[i * size + j];
 			}
 		}
-		lowerBound += shortestEdge;
-		for (int j = 0; j < size; j++) {
-			if (i != j) {
-				graph[i * size + j] -= shortestEdge;
+		if (shortestEdge > 0 && shortestEdge < INT_MAX) {
+			lowerBound += shortestEdge;
+			for (int j = 0; j < size; j++) {
+				if (graph[i * size + j] > 0) {
+					graph[i * size + j] -= shortestEdge;
+				}
 			}
 		}
 	}
@@ -208,10 +215,12 @@ int reduceGraph(int* graph, int size) {
 				shortestEdge = graph[j * size + i];
 			}
 		}
-		lowerBound += shortestEdge;
-		for (int j = 0; j < size; j++) {
-			if (i != j) {
-				graph[j * size + i] -= shortestEdge;
+		if (shortestEdge > 0 && shortestEdge < INT_MAX) {
+			lowerBound += shortestEdge;
+			for (int j = 0; j < size; j++) {
+				if (graph[j * size + i] > 0) {
+					graph[j * size + i] -= shortestEdge;
+				}
 			}
 		}
 	}
@@ -219,41 +228,258 @@ int reduceGraph(int* graph, int size) {
 	return lowerBound;
 }
 
-void bestfsAlgorithm(int* graph, int size) {
-	int lowerBound = reduceGraph(graph, size);
+bool isCycle(NodeBestFS* node, int size, int x, int y) {
+	if (node->getNumberOfEdges() + 1 == size) {
+		//std::cout << "Last edge\n";
+		return false;
+	}
+	int begin = x;
+	while (true) {
+		bool isPath = false;
+		for (int j = 0; j < size; j++) {
+			if (node->getEdges()[0 * size + j] == begin) {
+				begin = node->getEdges()[1 * size + j];
+				isPath = true;
+				break;
+			}
+		}
+		if (!isPath) {
+			break;
+		}
+		if (begin == y) {
+			//std::cout << "Cycle\n";
+			return true;
+		}
+	}
+	return false;
+}
+
+int bestfsAlgorithm(int* graph, int size) {
+	int* originalGraph = new int[size * size];
+	int* edges = new int[2 * size];
+	bool* visited = new bool[2 * size];
+
+	int shortestCycleLength = INT_MAX;
+	int* shortestCycle = new int[size + 1];
+	for (int i = 0; i <= size; i++) {
+		shortestCycle[i] = -1;
+	}
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			originalGraph[i * size + j] = graph[i * size + j];
+		}
+	}
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < size; j++) {
+			edges[i * size + j] = -1;
+			visited[i * size + j] = false;
+		}
+	}
+
+	int bound = reduceGraph(graph, size);
+	NodeBestFS* root = new NodeBestFS(bound, graph, visited, edges, 0, size);
+
+	Queue<NodeBestFS>* queue = new Queue<NodeBestFS>();
+
+	queue->enqueue(root);
+
+	while (!queue->empty()) {
+		NodeBestFS* node = queue->getFirstItem();
+		queue->dequeue();
+		while (node->getNumberOfEdges() < size && node->getBound() < shortestCycleLength) {
+			/*
+			for (int i = 0; i < size; i++) {
+				std::cout << std::endl;
+				for (int j = 0; j < size; j++) {
+					std::cout << node->getGraph()[i * size + j] << " ";
+				}
+			}
+			std::cout << std::endl;
+			*/
+			int bestPenalty = -1;
+			int posX = -1;
+			int posY = -1;
+			int valueX = -1;
+			int valueY = -1;
+			if (size - node->getNumberOfEdges() > 1) {
+				for (int i = 0; i < size; i++) {
+					if (!node->getVisited()[1 * size + i]) {
+						for (int j = 0; j < size; j++) {
+							if (!node->getVisited()[0 * size + j]) {
+								if (node->getGraph()[i * size + j] == 0) {
+									int x = -1;
+									int y = -1;
+									for (int k = 0; k < size; k++) {
+										if (node->getGraph()[i * size + k] > y) {
+											y = node->getGraph()[i * size + k];
+										}
+										if (node->getGraph()[k * size + j] > x) {
+											x = node->getGraph()[k * size + j];
+										}
+									}
+									if (x + y > bestPenalty) {
+										bestPenalty = x + y;
+										valueX = x;
+										valueY = y;
+										posX = j;
+										posY = i;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			else {
+				for (int i = 0; i < size; i++) {
+					if (!node->getVisited()[0 * size + i]) {
+						posX = i;
+					}
+					if (!node->getVisited()[1 * size + i]) {
+						posY = i;
+					}
+				}
+			}
+			//std::cout << posY << ", " << posX << std::endl;
+
+			if (posX == -1 || posY == -1) {
+				break;
+			}
+
+			int* newGraphB = new int[size * size];
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					newGraphB[i * size + j] = node->getGraph()[i * size + j];
+				}
+			}
+			newGraphB[posY * size + posX] = -1;
+			int newBound = reduceGraph(newGraphB, size);
+			queue->enqueue(new NodeBestFS(node->getBound() + newBound, newGraphB, node->getVisited(), node->getEdges(), node->getNumberOfEdges(), size));
+
+			delete[] newGraphB;
+
+			if (!isCycle(node, size, posX, posY)) {
+				int* newGraphA = new int[size * size];
+				for (int i = 0; i < size; i++) {
+					for (int j = 0; j < size; j++) {
+						if (i == posY || j == posX) {
+							newGraphA[i * size + j] = -1;
+						}
+						else if (i == posX && j == posY) {
+							newGraphA[i * size + j] = -1;
+						}
+						else {
+							newGraphA[i * size + j] = node->getGraph()[i * size + j];
+						}
+					}
+				}
+				newBound = reduceGraph(newGraphA, size);
+				int* newEdges = new int[2 * size];
+				bool* newVisited = new bool[2 * size];
+				for (int i = 0; i < size; i++) {
+					newEdges[0 * size + i] = node->getEdges()[0 * size + i];
+					newEdges[1 * size + i] = node->getEdges()[1 * size + i];
+					newVisited[0 * size + i] = node->getVisited()[0 * size + i];
+					newVisited[1 * size + i] = node->getVisited()[1 * size + i];
+				}
+				newEdges[0 * size + node->getNumberOfEdges()] = posY;
+				newEdges[1 * size + node->getNumberOfEdges()] = posX;
+				newVisited[0 * size + posX] = true;
+				newVisited[1 * size + posY] = true;
+				NodeBestFS* oldNode = node;
+				node = new NodeBestFS(node->getBound() + newBound, newGraphA, newVisited, newEdges, node->getNumberOfEdges() + 1, size);
+
+				delete oldNode;
+				delete[] newGraphA;
+				delete[] newEdges;
+			}
+			else {
+				break;
+			}
+		}
+		if (node->getNumberOfEdges() == size) {
+			int length = 0;
+			for (int i = 0; i < size; i++) {
+				//std::cout << node->getEdges()[0 * size + i] << "->" << node->getEdges()[1 * size + i] << ": " << originalGraph[node->getEdges()[0 * size + i] * size + node->getEdges()[1 * size + i]] << ", ";
+				if (originalGraph[node->getEdges()[0 * size + i] * size + node->getEdges()[1 * size + i]] >= 0) {
+					length += originalGraph[node->getEdges()[0 * size + i] * size + node->getEdges()[1 * size + i]];
+				}
+				else {
+					length = INT_MAX;
+					break;
+				}
+			}
+			//std::cout << std::endl;
+			if (length < shortestCycleLength) {
+				shortestCycleLength = length;
+				shortestCycle[0] = 0;
+				for (int i = 0; i < size; i++) {
+					for (int j = 0; j < size; j++) {
+						if (node->getEdges()[0 * size + j] == shortestCycle[i]) {
+							shortestCycle[i + 1] = node->getEdges()[1 * size + j];
+							break;
+						}
+					}
+				}
+			}
+		}
+		delete node;
+	}
+	/*
+	for (int i = 0; i <= size; i++) {
+		std::cout << shortestCycle[i] << " ";
+	}
+	std::cout << "\n" << shortestCycleLength << std::endl;
+	*/
+	delete[] originalGraph;
+	delete[] shortestCycle;
+	delete[] edges;
+
+	return shortestCycleLength;
 }
 
 int main() {
 	srand(time(0));
 
-	int size = 4;
+	int numberOfErrors = 0;
 
-	int* graph = new int[size * size];
+	int size = 10;
 
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			if (i == j) {
-				graph[i * size + j] = -1;
-			}
-			else {
-				graph[i * size + j] = rand() % 9 + 1;
+	for (int i = 0; i < 100; i++) {
+		int* graph = new int[size * size];
+
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (i == j) {
+					graph[i * size + j] = -1;
+				}
+				else {
+					graph[i * size + j] = rand() % 90 + 10;
+				}
 			}
 		}
-	}
-
-	for (int i = 0; i < size; i++) {
+		/*
+		for (int i = 0; i < size; i++) {
+			std::cout << std::endl;
+			for (int j = 0; j < size; j++) {
+				std::cout << graph[i * size + j] << " ";
+			}
+		}
 		std::cout << std::endl;
-		for (int j = 0; j < size; j++) {
-			std::cout << graph[i * size + j] << " ";
+		*/
+		int result1 = bfsAlgorithm(graph, size);
+
+		int result2 = bestfsAlgorithm(graph, size);
+
+		if (!(result1 == result2)) {
+			numberOfErrors++;
+
+			std::cout << result1 << " != " << result2 << std::endl;
 		}
+
+		delete[] graph;
 	}
-	std::cout << std::endl;
-
-	bfsAlgorithm(graph, size);
-
-	bestfsAlgorithm(graph, size);
-
-	delete[] graph;
-
+	std::cout << numberOfErrors << std::endl;
 	return 0;
 }

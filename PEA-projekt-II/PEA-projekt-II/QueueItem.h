@@ -23,9 +23,5 @@ public:
 	void setNextItem(QueueItem* nextItem) {
 		this->nextItem = nextItem;
 	}
-
-	~QueueItem() {
-		delete node;
-	}
 };
 

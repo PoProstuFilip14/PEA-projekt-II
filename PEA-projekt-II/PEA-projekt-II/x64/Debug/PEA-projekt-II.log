@@ -1,8 +1,3 @@
 ﻿  main.cpp
-C:\Users\froma\Documents\GitHub\PEA-projekt-II\PEA-projekt-II\PEA-projekt-II\main.cpp(227,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Node.cpp
-  NodeBestFS.cpp
-  Queue.cpp
-  QueueItem.cpp
-  Generowanie kodu...
+C:\Users\froma\Documents\GitHub\PEA-projekt-II\PEA-projekt-II\PEA-projekt-II\main.cpp(443,12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   PEA-projekt-II.vcxproj -> C:\Users\froma\Documents\GitHub\PEA-projekt-II\PEA-projekt-II\x64\Debug\PEA-projekt-II.exe
